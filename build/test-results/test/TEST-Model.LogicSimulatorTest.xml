@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Model.LogicSimulatorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-08-13T07:57:51" hostname="DESKTOP-BP6PD4V" time="0.035">
-  <properties/>
-  <testcase name="testLoad" classname="Model.LogicSimulatorTest" time="0.018"/>
-  <testcase name="testGetSimulationResult" classname="Model.LogicSimulatorTest" time="0.009"/>
-  <testcase name="testGetTruthTable" classname="Model.LogicSimulatorTest" time="0.008"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
