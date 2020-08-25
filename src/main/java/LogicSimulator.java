@@ -8,13 +8,7 @@ public class LogicSimulator
     private Vector<Device> iPins = new Vector<>();
     private Vector<Device> oPins = new Vector<>();
     public Vector<String> inputStrings = new Vector<>();
-    private int gates;
     private int pins;
-
-    private void Print(Object something)
-    {
-        System.out.println(something);
-    }
 
     private void FindOutputPin()
     {
@@ -82,7 +76,6 @@ public class LogicSimulator
             fr.close();
 
             createPins(Integer.parseInt(inputStrings.remove(0)));
-            gates = Integer.parseInt(inputStrings.remove(0));
 
             createCircuits();
             connectPings();
