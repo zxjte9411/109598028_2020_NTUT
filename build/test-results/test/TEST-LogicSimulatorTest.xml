@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="LogicSimulatorTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-08-25T08:57:36" hostname="DESKTOP-D0SC3Q9" time="0.012">
+<testsuite name="LogicSimulatorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-08-25T11:24:35" hostname="DESKTOP-D0SC3Q9" time="0.015">
   <properties/>
-  <testcase name="testGetSimulationResult" classname="LogicSimulatorTest" time="0.007"/>
-  <testcase name="testGetTruthTable" classname="LogicSimulatorTest" time="0.005"/>
-  <system-out><![CDATA[0 0 0 0 0 1 0 1 0 0 1 1 1 0 0 1 0 1 1 1 0 1 1 1 ]]></system-out>
+  <testcase name="testLoad" classname="LogicSimulatorTest" time="0.01"/>
+  <testcase name="testGetSimulationResult" classname="LogicSimulatorTest" time="0.002"/>
+  <testcase name="testGetTruthTable" classname="LogicSimulatorTest" time="0.003"/>
+  <system-out><![CDATA[java.io.FileNotFoundException: FILE_NOT_EXIST (系統找不到指定的檔案。)
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
