@@ -9,6 +9,7 @@ public class LogicSimulator
     private Vector<Device> oPins = new Vector<>();
     public Vector<String> inputStrings = new Vector<>();
     private int pins;
+    public boolean isFileLoadedAndSuccess = false;
     private final String BLANK_SPACE = " ";
 
     private void FindOutputPin()
@@ -93,8 +94,10 @@ public class LogicSimulator
         }
         catch (Exception e){
             // System.out.println(e.toString());
+            isFileLoadedAndSuccess = false;
             return false;
         }
+        isFileLoadedAndSuccess = true;
         return true;
     }
 
