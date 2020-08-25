@@ -92,24 +92,26 @@ public class LogicSimulator
         }
     }
 
+    private void buildResultHead(StringBuilder stringBuilder)
+    {
+        for (int i=0;i<iPins.size();i++)
+        {
+            stringBuilder.append("i ");
+        }
+        stringBuilder.append("|");
+        for (int i=0;i<oPins.size();i++)
+        {
+            stringBuilder.append(" o");
+        }
+        stringBuilder.append("\n");
 
+    }
     public String getSimulationResult(Vector<Boolean> inputValues)
     {
         FindOutputPin();
         StringBuilder simulationResult = new StringBuilder("Simulation Result:\n");
-        // i i i
-        for (int i=0;i<iPins.size();i++)
-        {
-            simulationResult.append("i ");
-        }
-        // i i i |
-        simulationResult.append("|");
-        // i i i | o
-        for (int i=0;i<oPins.size();i++)
-        {
-            simulationResult.append(" o");
-        }
-        simulationResult.append("\n");
+
+        buildResultHead(simulationResult);
         // 1 2 3
         for (int i=0;i<inputValues.size();i++)
         {
@@ -117,18 +119,11 @@ public class LogicSimulator
             simulationResult.append(i + 1).append(" ");
         }
         // 1 2 3 |
-        simulationResult.append("| ");
+        simulationResult.append("|");
         // 1 2 3 | 1
         for (int i=0;i<oPins.size();i++)
         {
-            if (oPins.size()-1 == i)
-            {
-                simulationResult.append(i+1);
-            }
-            else
-            {
-                simulationResult.append(i+1).append(" ");
-            }
+            simulationResult.append(" ").append(i+1);
         }
         simulationResult.append("\n");
         String dash = "--";
@@ -166,8 +161,14 @@ public class LogicSimulator
         }
         truthTable.append("| 1\n");
         truthTable.append("------+--\n");
-//        int rows = (int) Math.pow(2, pins);
-
+        int rows = (int) Math.pow(2, pins);
+        for (int i=0; i<rows; i++)
+        {
+            for (int j=pins-1; j>=0; j--)
+            {
+                System.out.print((i/(int) Math.pow(2, j))%2 + " ");
+            }
+        }
 
         return truthTable.toString();
     }
