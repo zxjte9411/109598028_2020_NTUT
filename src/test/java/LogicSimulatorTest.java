@@ -30,8 +30,7 @@ public class LogicSimulatorTest
 
         assertTrue(logicSimulator.load(file2Path));
         assertEquals(3, logicSimulator.getInputPinsSize());
-        assertEquals(2,
-                logicSimulator.getOutputPinsSize());
+        assertEquals(2, logicSimulator.getOutputPinsSize());
         assertEquals(5, logicSimulator.getCircuitsSize());
     }
 

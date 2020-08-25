@@ -87,7 +87,7 @@ public class LogicSimulator
             fr.close();
 
             createPins(Integer.parseInt(inputStrings.remove(0)));
-
+            inputStrings.remove(0);
             createCircuits();
             connectPings();
         }
