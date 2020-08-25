@@ -65,8 +65,17 @@ public class LogicSimulator
         }
     }
 
-    public void load(String filePath)
+    private void initialization()
     {
+        inputStrings.clear();
+        circuits.clear();
+        iPins.clear();
+        oPins.clear();
+    }
+
+    public boolean load(String filePath)
+    {
+        initialization();
         try {
             FileReader fr = new FileReader(filePath);
             BufferedReader br = new BufferedReader(fr);
