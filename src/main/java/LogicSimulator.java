@@ -91,8 +91,10 @@ public class LogicSimulator
             connectPings();
         }
         catch (Exception e){
-            System.out.println(e.toString());
+            // System.out.println(e.toString());
+            return false;
         }
+        return true;
     }
 
     private void buildResultHead(StringBuilder stringBuilder)
