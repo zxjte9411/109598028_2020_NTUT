@@ -33,7 +33,8 @@ public class LogicSimulator
                 if (s.matches("-[1-9]\\d*"))
                 {
                     circuits.get(i).addInputPin(this.iPins.get(Integer.parseInt(s.substring(1)) - 1));
-                } else if (s.matches("[1-9]\\d*\\.1")) {
+                }
+                else if (s.matches("[1-9]\\d*\\.1")) {
                     circuits.get(i).addInputPin(circuits.get(Integer.parseInt(s.split("\\.")[0]) - 1));
                 }
             }
@@ -194,8 +195,6 @@ public class LogicSimulator
         StringBuilder truthTable = new StringBuilder("Truth table:\n");
         buildResultHead(truthTable);
         buildTruthTableBody(truthTable);
-
-
         return truthTable.toString();
     }
 
