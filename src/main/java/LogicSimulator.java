@@ -177,4 +177,19 @@ public class LogicSimulator
 
         return truthTable.toString();
     }
+
+    public int getInputPinsSize()
+    {
+        return pins;
+    }
+
+    public int getOutputPinsSize()
+    {
+        return oPins.size();
+    }
+
+    public int getCircuitsSize()
+    {
+        return circuits.size();
+    }
 }
