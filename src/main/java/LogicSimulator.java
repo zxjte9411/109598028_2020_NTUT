@@ -9,6 +9,7 @@ public class LogicSimulator
     private Vector<Device> oPins = new Vector<>();
     public Vector<String> inputStrings = new Vector<>();
     private int pins;
+    private final String BLANK_SPACE = " ";
 
     private void FindOutputPin()
     {
@@ -26,7 +27,7 @@ public class LogicSimulator
     {
         String[] substring;
         for (int i=0;i<inputStrings.size();i++) {
-            substring = inputStrings.get(i).split(" ");
+            substring = inputStrings.get(i).split(BLANK_SPACE);
             for (String s : substring) {
                 if (s.matches("-[1-9]\\d*"))
                 {
@@ -133,12 +134,12 @@ public class LogicSimulator
         // 0 1 1
         for (Boolean inputValue : inputValues)
         {
-            simulationResult.append(inputValue ? 1 : 0).append(" ");
+            simulationResult.append(inputValue ? 1 : 0).append(BLANK_SPACE);
         }
         simulationResult.append("|");
         for (Device oPin: oPins)
         {
-            simulationResult.append(" ").append(oPin.getOutput()? 1 : 0);
+            simulationResult.append(BLANK_SPACE).append(oPin.getOutput()? 1 : 0);
         }
         simulationResult.append("\n");
         return simulationResult.toString();
