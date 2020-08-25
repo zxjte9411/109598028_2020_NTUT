@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="LogicSimulatorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-08-25T12:13:02" hostname="DESKTOP-D0SC3Q9" time="0.012">
+<testsuite name="LogicSimulatorTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-08-25T12:54:18" hostname="DESKTOP-D0SC3Q9" time="0.01">
   <properties/>
-  <testcase name="testLoad" classname="LogicSimulatorTest" time="0.008"/>
+  <testcase name="testLoad" classname="LogicSimulatorTest" time="0.006"/>
   <testcase name="testGetSimulationResult" classname="LogicSimulatorTest" time="0.001"/>
-  <testcase name="testGetTruthTable" classname="LogicSimulatorTest" time="0.002"/>
+  <testcase name="testGetTruthTable" classname="LogicSimulatorTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

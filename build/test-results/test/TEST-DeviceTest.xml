@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="DeviceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-08-25T12:54:18" hostname="DESKTOP-D0SC3Q9" time="0.007">
+  <properties/>
+  <testcase name="testDevicePolymorphism" classname="DeviceTest" time="0.004"/>
+  <testcase name="testGetOutputException" classname="DeviceTest" time="0.0"/>
+  <testcase name="testGateAnd" classname="DeviceTest" time="0.0"/>
+  <testcase name="testGateNot" classname="DeviceTest" time="0.0"/>
+  <testcase name="testIPinAndOPin" classname="DeviceTest" time="0.0"/>
+  <testcase name="testSetInputException" classname="DeviceTest" time="0.0"/>
+  <testcase name="testGateOR" classname="DeviceTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
