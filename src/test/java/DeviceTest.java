@@ -163,4 +163,18 @@ public class DeviceTest
         gateOR.addInputPin(iPin2);
         assertTrue(gateOR.getOutput());
     }
+
+    @Test(expected=RuntimeException.class)
+    public void testGetOutputException()
+    {
+        Device device = new Device();
+        device.getOutput();
+    }
+
+    @Test(expected=RuntimeException.class)
+    public void testSetInputException()
+    {
+        Device device = new Device();
+        device.setInput(true);
+    }
 }
