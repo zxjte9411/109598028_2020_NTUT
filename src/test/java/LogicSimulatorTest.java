@@ -29,13 +29,15 @@ public class LogicSimulatorTest
             System.out.println(e.toString());
         }
 
-//        Vector<Boolean> inputValues = new Vector<>();
-
-//        assertEquals("Simulation Result:\n" +
-//                "i i i | o\n" +
-//                "1 2 3 | 1\n" +
-//                "------+--\n" +
-//                "0 1 1 | 0\n", logicSimulator.getSimulationResult(inputValues));
+        Vector<Boolean> inputValues = new Vector<>();
+        inputValues.add(false);
+        inputValues.add(true);
+        inputValues.add(true);
+        assertEquals("Simulation Result:\n" +
+                "i i i | o\n" +
+                "1 2 3 | 1\n" +
+                "------+--\n" +
+                "0 1 1 | 0\n", logicSimulator.getSimulationResult(inputValues));
     }
 
     @Test
@@ -44,8 +46,7 @@ public class LogicSimulatorTest
         LogicSimulator logicSimulator = new LogicSimulator();
 
         logicSimulator.load(file1Path);
-//        System.out.println(logicSimulator.inputString.toString());
-
+        logicSimulator.getTruthTable();
 //        assertEquals("Truth table:\n" +
 //                "i i i | o\n" +
 //                "1 2 3 | 1\n" +
@@ -58,5 +59,22 @@ public class LogicSimulatorTest
 //                "1 0 1 | 1\n" +
 //                "1 1 0 | 0\n" +
 //                "1 1 1 | 0\n", logicSimulator.getTruthTable());
+
+        logicSimulator = new LogicSimulator();
+
+        logicSimulator.load(file2Path);
+
+//        assertEquals("Truth table:\n" +
+//                "i i i | o o\n" +
+//                "1 2 3 | 1 2\n" +
+//                "------+----\n" +
+//                "0 0 0 | 0 1\n" +
+//                "0 0 1 | 0 1\n" +
+//                "0 1 0 | 0 1\n" +
+//                "0 1 1 | 0 1\n" +
+//                "1 0 0 | 1 0\n" +
+//                "1 0 1 | 1 0\n" +
+//                "1 1 0 | 0 1\n" +
+//                "1 1 1 | 0 1\n", logicSimulator.getTruthTable());
     }
 }
