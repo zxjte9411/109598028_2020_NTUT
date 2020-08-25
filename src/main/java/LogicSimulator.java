@@ -92,24 +92,66 @@ public class LogicSimulator
         }
     }
 
+
     public String getSimulationResult(Vector<Boolean> inputValues)
     {
-        int oPinIndex = FindOutputPin();
-        StringBuilder simulationResult = new StringBuilder("Simulation Result:\ni i i | o\n");
+        FindOutputPin();
+        StringBuilder simulationResult = new StringBuilder("Simulation Result:\n");
+        // i i i
+        for (int i=0;i<iPins.size();i++)
+        {
+            simulationResult.append("i ");
+        }
+        // i i i |
+        simulationResult.append("|");
+        // i i i | o
+        for (int i=0;i<oPins.size();i++)
+        {
+            simulationResult.append(" o");
+        }
+        simulationResult.append("\n");
+        // 1 2 3
         for (int i=0;i<inputValues.size();i++)
         {
             iPins.get(i).setInput(inputValues.get(i));
-            simulationResult.append(i + 1);
-            simulationResult.append(" ");
+            simulationResult.append(i + 1).append(" ");
         }
-        simulationResult.append("| 1\n");
-        simulationResult.append("------+--\n");
-        for (Boolean inputValue : inputValues) {
-            simulationResult.append(inputValue ? 1 : 0);
-            simulationResult.append(" ");
-        }
+        // 1 2 3 |
         simulationResult.append("| ");
-        simulationResult.append(circuits.get(oPinIndex).getOutput()? 1 : 0);
+        // 1 2 3 | 1
+        for (int i=0;i<oPins.size();i++)
+        {
+            if (oPins.size()-1 == i)
+            {
+                simulationResult.append(i+1);
+            }
+            else
+            {
+                simulationResult.append(i+1).append(" ");
+            }
+        }
+        simulationResult.append("\n");
+        String dash = "--";
+        for (int i=0; i<pins;i++)
+        {
+            simulationResult.append(dash);
+        }
+        simulationResult.append("+");
+        for (int i=0; i<oPins.size();i++)
+        {
+            simulationResult.append(dash);
+        }
+        simulationResult.append("\n");
+        // 0 1 1
+        for (Boolean inputValue : inputValues)
+        {
+            simulationResult.append(inputValue ? 1 : 0).append(" ");
+        }
+        simulationResult.append("|");
+        for (Device oPin: oPins)
+        {
+            simulationResult.append(" ").append(oPin.getOutput()? 1 : 0);
+        }
         simulationResult.append("\n");
         return simulationResult.toString();
     }
