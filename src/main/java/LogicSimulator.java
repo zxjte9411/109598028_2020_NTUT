@@ -37,6 +37,7 @@ public class LogicSimulator
                 }
             }
         }
+        FindOutputPin();
     }
 
     private void createPins(int pins)
@@ -99,50 +100,56 @@ public class LogicSimulator
 
     private void buildResultHead(StringBuilder stringBuilder)
     {
-        for (int i=0;i<iPins.size();i++)
+        for (int i=0;i<pins;i++)
         {
             stringBuilder.append("i ");
         }
+
         stringBuilder.append("|");
+
         for (int i=0;i<oPins.size();i++)
         {
             stringBuilder.append(" o");
         }
+
         stringBuilder.append("\n");
 
+        for (int i=0; i<iPins.size(); i++)
+        {
+            stringBuilder.append(i + 1).append(BLANK_SPACE);
+        }
+
+        stringBuilder.append("|");
+
+        for (int i=0; i<oPins.size(); i++)
+        {
+            stringBuilder.append(BLANK_SPACE).append(i+1);
+        }
+        stringBuilder.append("\n");
+        String DASH = "--";
+        for (int i=0; i<pins; i++)
+        {
+            stringBuilder.append(DASH);
+        }
+        stringBuilder.append("+");
+        for (int i=0; i<oPins.size(); i++)
+        {
+            stringBuilder.append(DASH);
+        }
+        stringBuilder.append("\n");
     }
+
     public String getSimulationResult(Vector<Boolean> inputValues)
     {
-        FindOutputPin();
+
         StringBuilder simulationResult = new StringBuilder("Simulation Result:\n");
 
-        buildResultHead(simulationResult);
-        // 1 2 3
-        for (int i=0;i<inputValues.size();i++)
+        for (int i=0; i<iPins.size(); i++)
         {
             iPins.get(i).setInput(inputValues.get(i));
-            simulationResult.append(i + 1).append(" ");
         }
-        // 1 2 3 |
-        simulationResult.append("|");
-        // 1 2 3 | 1
-        for (int i=0;i<oPins.size();i++)
-        {
-            simulationResult.append(" ").append(i+1);
-        }
-        simulationResult.append("\n");
-        String dash = "--";
-        for (int i=0; i<pins;i++)
-        {
-            simulationResult.append(dash);
-        }
-        simulationResult.append("+");
-        for (int i=0; i<oPins.size();i++)
-        {
-            simulationResult.append(dash);
-        }
-        simulationResult.append("\n");
-        // 0 1 1
+        buildResultHead(simulationResult);
+
         for (Boolean inputValue : inputValues)
         {
             simulationResult.append(inputValue ? 1 : 0).append(BLANK_SPACE);
@@ -156,24 +163,35 @@ public class LogicSimulator
         return simulationResult.toString();
     }
 
-    public String getTruthTable()
+    private void buildTruthTableBody(StringBuilder stringBuilder)
     {
-        StringBuilder truthTable = new StringBuilder("Truth table:\ni i i | o\n");
-        for (int i=0;i<pins;i++)
-        {
-            truthTable.append(i + 1);
-            truthTable.append(" ");
-        }
-        truthTable.append("| 1\n");
-        truthTable.append("------+--\n");
         int rows = (int) Math.pow(2, pins);
+
         for (int i=0; i<rows; i++)
         {
             for (int j=pins-1; j>=0; j--)
             {
-                System.out.print((i/(int) Math.pow(2, j))%2 + " ");
+                String value = String.valueOf((i/(int)Math.pow(2, j))%2);
+
+                stringBuilder.append(value).append(BLANK_SPACE);
+                // pins-j-1
+                iPins.get(pins-j-1).setInput(!value.equals("0"));
             }
+            stringBuilder.append("|");
+            for (Device oPin: oPins)
+            {
+                stringBuilder.append(BLANK_SPACE).append(oPin.getOutput()?1:0);
+            }
+            stringBuilder.append("\n");
         }
+    }
+
+    public String getTruthTable()
+    {
+        StringBuilder truthTable = new StringBuilder("Truth table:\n");
+        buildResultHead(truthTable);
+        buildTruthTableBody(truthTable);
+
 
         return truthTable.toString();
     }
