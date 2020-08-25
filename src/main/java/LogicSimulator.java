@@ -1,8 +1,5 @@
-import sun.security.util.BitArray;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.lang.reflect.Array;
 import java.util.Vector;
 
 public class LogicSimulator
@@ -19,22 +16,16 @@ public class LogicSimulator
         System.out.println(something);
     }
 
-    private int FindOutputPin()
+    private void FindOutputPin()
     {
-        for (int i=0;i<circuits.size();i++)
+        oPins.clear();
+        for (Device device: circuits)
         {
-            for (int j=1;j<circuits.size();j++)
+            if (!device.IsConnectToOtherGates)
             {
-                if (i != j)
-                {
-                    if(circuits.get(i) == circuits.get(j))
-                    {
-                        return i;
-                    }
-                }
+                oPins.add(device);
             }
         }
-        return 0;
     }
 
     private void connectPings()
